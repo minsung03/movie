@@ -1,0 +1,371 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", system-ui,
+	sans-serif;
+	background-color: #0f172a;
+	color: #e5e7eb;
+}
+
+.app {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.app--loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.app__loading-text {
+	font-size: 1.4rem;
+	color: #9ca3af;
+}
+
+/* 헤더 */
+
+.app-header {
+	padding: 1.5rem 2rem;
+	border-bottom: 1px solid #1f2937;
+	background: linear-gradient(135deg, #020617, #111827);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+.app-header__title {
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+
+.app-header__subtitle {
+	margin-top: 0.25rem;
+	font-size: 0.9rem;
+	color: #9ca3af;
+}
+
+/* 메인 영역 */
+
+.app-main {
+	flex: 1;
+	padding: 1.5rem 2rem 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.app-main__controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	align-items: flex-end;
+	margin-bottom: 1.5rem;
+}
+
+.app-main__content {
+	min-width: 1088px;
+	min-height: 300px;
+}
+
+/* 푸터 */
+
+.app-footer {
+	padding: 0.75rem 2rem;
+	font-size: 0.8rem;
+	color: #6b7280;
+	border-top: 1px solid #1f2937;
+}
+
+/* SearchBar */
+
+.search-bar {
+	flex: 1 1 260px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.search-bar__label {
+	font-size: 0.85rem;
+	color: #9ca3af;
+}
+
+.search-bar__input {
+	padding: 0.6rem 0.75rem;
+	border-radius: 0.5rem;
+	border: 1px solid #374151;
+	background-color: #020617;
+	color: #f9fafb;
+}
+
+.search-bar__input::placeholder {
+	color: #6b7280;
+}
+
+.search-bar__input:focus {
+	outline: 2px solid #fbbf24;
+	outline-offset: 1px;
+}
+
+/* FilterBar */
+
+.filter-bar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.filter-bar__group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	min-width: 140px;
+}
+
+.filter-bar__group label {
+	font-size: 0.85rem;
+	color: #9ca3af;
+}
+
+.filter-bar__group select {
+	padding: 0.5rem 0.75rem;
+	border-radius: 0.5rem;
+	border: 1px solid #374151;
+	background-color: #020617;
+	color: #f9fafb;
+}
+
+/* Movie list */
+
+.move-list-cover{
+	max-height: 630px;
+	overflow-y: scroll;
+}
+.movie-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 1.25rem;
+}
+
+.movie-card {
+	width: 257px;
+	background: radial-gradient(circle at top, #1f2937, #020617);
+	border-radius: 1rem;
+	padding: 0.75rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border: 1px solid #1f2937;
+	transition: transform 0.15s ease-out, box-shadow 0.15s ease-out,
+	border-color 0.15s ease-out;
+}
+
+.movie-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	border-color: #fbbf24;
+}
+
+.movie-card__poster-wrapper {
+	position: relative;
+	border-radius: 0.75rem;
+	overflow: hidden;
+}
+
+.movie-card__poster {
+	width: 245px;
+	height: 352px;
+	margin: 0 auto;
+}
+
+.movie-card__rating-badge {
+	position: absolute;
+	left: 0.75rem;
+	bottom: 0.75rem;
+	padding: 0.25rem 0.5rem;
+	border-radius: 999px;
+	background-color: rgba(15, 23, 42, 0.8);
+	font-size: 0.8rem;
+	user-select: none;
+}
+
+.movie-card__info {
+	padding: 0.25rem 0.25rem 0;
+}
+
+.movie-card__title {
+	font-size: 1rem;
+	margin: 0 0 0.25rem;
+	white-space: break-spaces;
+}
+
+.movie-card__meta {
+	margin: 0;
+	font-size: 0.8rem;
+	color: #9ca3af;
+}
+
+.movie-card__genres {
+	margin-top: 0.4rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem;
+}
+
+.movie-card__actions {
+	margin-top: 0.5rem;
+	display: flex;
+	gap: 0.5rem;
+}
+
+.btn {
+	/* flex: 1; */
+	padding: 0.4rem 0.5rem;
+	border-radius: 999px;
+	border: none;
+	font-size: 0.85rem;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.btn--primary {
+	background: linear-gradient(135deg, #facc15, #f97316);
+	color: #1f2937;
+}
+
+.btn--secondary {
+	background-color: #111827;
+	color: #e5e7eb;
+	border: 1px solid #374151;
+}
+
+.btn:active {
+	transform: translateY(1px);
+}
+
+/* 태그 */
+
+.tag {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.1rem 0.45rem;
+	border-radius: 999px;
+	border: 1px solid #4b5563;
+	font-size: 0.75rem;
+	color: #e5e7eb;
+}
+
+/* 검색 결과 없을 때 */
+
+.empty-state {
+	padding: 3rem 1rem;
+	text-align: center;
+	color: #9ca3af;
+}
+
+/* 모달 */
+
+.modal-backdrop {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(15, 23, 42, 0.75);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 20;
+}
+
+.modal {
+	width: min(800px, 92vw);
+	max-height: 90vh;
+	background-color: #020617;
+	border-radius: 1rem;
+	border: 1px solid #4b5563;
+	padding: 1rem;
+	position: relative;
+	overflow: hidden;
+}
+
+.modal__close {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	border: none;
+	background: transparent;
+	color: #9ca3af;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+.modal__content {
+	display: flex;
+	gap: 1rem;
+	overflow: auto;
+}
+
+.modal__poster-wrapper {
+	flex: 0 0 220px;
+}
+
+.modal__poster {
+	width: 245px;
+	height: 352px;
+	border-radius: 0.75rem;
+}
+
+.modal__info {
+	flex: 1;
+	padding-right: 0.5rem;
+}
+
+.modal__title {
+	margin: 0;
+	font-size: 1.4rem;
+}
+
+.modal__original-title {
+	margin: 0.15rem 0 0.4rem;
+	font-size: 0.85rem;
+	color: #9ca3af;
+}
+
+.modal__meta {
+	margin: 0.15rem 0;
+	font-size: 0.85rem;
+	color: #9ca3af;
+}
+
+.modal__genres {
+	margin: 0.5rem 0 0.75rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem;
+}
+
+.modal__overview {
+	font-size: 0.9rem;
+	line-height: 1.5;
+}
+
+/* 반응형 */
+
+@media (max-width: 768px) {
+	.app-main {
+		padding: 1rem;
+	}
+
+	.modal__content {
+		flex-direction: column;
+	}
+
+	.modal__poster-wrapper {
+		flex-basis: auto;
+	}
+}
